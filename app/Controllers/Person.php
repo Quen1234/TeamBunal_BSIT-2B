@@ -65,6 +65,29 @@ class Person extends Controller
         }
     }
 
+    public function edit($id) {
+        $model = new PersonModel();
+        $user = $model->find($id);
+
+        if ($user) {
+            return $this->response->setJSON(['data' => $user]);
+        } else {
+            return $this->response->setStatusCode(404)->setJSON(['error' => 'User not found']);
+        }
+    }
+
+    public function delete($id) {
+        $model = new PersonModel();
+        $logModel = new LogModel();
+
+        if ($model->delete($id)) {
+            $logModel->addLog('Deleted user ID: ' . $id, 'DELETED');
+            return $this->response->setJSON(['success' => true, 'message' => 'User deleted successfully.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to delete user.']);
+        }
+    }
+
 
     public function fetchRecords() {
         $request = service('request');
