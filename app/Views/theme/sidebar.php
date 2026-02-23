@@ -91,6 +91,14 @@ body.dark-mode .main-sidebar .nav-link:hover {
         <p>Activity Logs</p>
       </a>
     </li>
+    
+    <li class="nav-item">
+        <a href="<?= base_url('student') ?>" class="nav-link <?= is_active(1, 'student') ?>">
+            <i class="nav-icon fas fa-user-graduate"></i>
+            <p>Student</p>
+        </a>
+    </li>
+
     <li class="nav-item">
         <a href="<?= base_url('person') ?>" class="nav-link <?= is_active(1, 'person') ?>">
             <i class="nav-icon fas fa-users"></i>
@@ -98,12 +106,6 @@ body.dark-mode .main-sidebar .nav-link:hover {
         </a>
     </li>
 
-    <li class="nav-item">
-        <a href="<?= base_url('student') ?>" class="nav-link <?= is_active(1, 'student') ?>">
-            <i class="nav-icon fas fa-user-graduate"></i>
-            <p>Student</p>
-        </a>
-    </li>
 
 
      <li class="nav-item">
