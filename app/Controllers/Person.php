@@ -14,6 +14,29 @@ class Person extends Controller
         return view('person/index', $data);
     }
 
+    public function save() {
+      
+        $name     = $this->request->getPost('name1');
+        $bday    = $this->request->getPost('bday');
+        $address = $this->request->getPost('address');
+        $userModel = new PersonModel();
+        $logModel = new LogModel();
+
+
+        $data = [
+            'name'       => $name,
+            'address'      => $address,
+            'bday'       => $bday
+        ];
+
+        if ($userModel->insert($data)) {
+            $logModel->addLog('New User added: ' . $name, 'ADD');
+            return $this->response->setJSON(['status' => 'success']);
+        } else {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Failed to save user']);
+        }
+    }
+
     public function fetchRecords() {
         $request = service('request');
         $model = new PersonModel();
