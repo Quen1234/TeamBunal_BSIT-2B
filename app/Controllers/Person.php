@@ -14,7 +14,6 @@ class Person extends Controller
         return view('person/index', $data);
     }
 
-
     public function fetchRecords() {
         $request = service('request');
         $model = new PersonModel();
@@ -46,5 +45,7 @@ class Person extends Controller
             'data'            => $data,
         ]);
     }
+    
+    
     
 }
