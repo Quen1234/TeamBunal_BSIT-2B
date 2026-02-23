@@ -7,6 +7,9 @@ use CodeIgniter\Controller;
 use App\Models\LogModel;
 use App\Models\TeamModel;
 
+
+
+//still error 
 class Team extends Controller
 {
     public function index(){
