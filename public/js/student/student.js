@@ -9,7 +9,7 @@ function showToast(type, message) {
 $('#addUserForm').on('submit', function (e) {
     e.preventDefault();
     $.ajax({
-        url: baseUrl + 'team/save',
+        url: baseUrl + 'student/save',
         method: 'POST',
         data: $(this).serialize(),
         dataType: 'json',
@@ -17,7 +17,7 @@ $('#addUserForm').on('submit', function (e) {
             if (response.status === 'success') {
                 $('#AddNewModal').modal('hide');
                 $('#addUserForm')[0].reset();
-                showToast('success', 'Team added successfully!');
+                showToast('success', 'User added successfully!');
                 setTimeout(() => {
                     location.reload();
                 }, 1000); 
@@ -34,15 +34,15 @@ $('#addUserForm').on('submit', function (e) {
 $(document).on('click', '.edit-btn', function () {
    const userId = $(this).data('id'); 
    $.ajax({
-    url: baseUrl + 'team/edit/' + userId,
+    url: baseUrl + 'student/edit/' + userId,
     method: 'GET',
     dataType: 'json',
     success: function (response) {
         if (response.data) {
-            $('#editUserModal #name').val(response.data.name);
             $('#editUserModal #userId').val(response.data.id);
-            $('#editUserModal #bday').val(response.data.bday);
+            $('#editUserModal #name').val(response.data.name);
             $('#editUserModal #address').val(response.data.address);
+            $('#editUserModal #bday').val(response.data.bday);
             $('#editUserModal').modal('show');
         } else {
             alert('Error fetching user data');
@@ -60,7 +60,7 @@ $(document).ready(function () {
         e.preventDefault(); 
 
         $.ajax({
-            url: baseUrl + 'team/update',
+            url: baseUrl + 'student/update',
             method: 'POST',
             data: $(this).serialize(),
             dataType: 'json',
@@ -88,7 +88,7 @@ $(document).on('click', '.deleteUserBtn', function () {
 
     if (confirm('Are you sure you want to delete this user?')) {
         $.ajax({
-            url: baseUrl + 'team/delete/' + userId,
+            url: baseUrl + 'student/delete/' + userId,
             method: 'POST', 
             data: {
                 _method: 'DELETE',
@@ -96,7 +96,7 @@ $(document).on('click', '.deleteUserBtn', function () {
             },
             success: function (response) {
                 if (response.success) {
-                    showToast('success', 'Users deleted successfully.');
+                    showToast('success', 'student deleted successfully.');
                     setTimeout(() => location.reload(), 1000);
                 } else {
                     alert(response.message || 'Failed to delete.');
@@ -119,7 +119,7 @@ $(document).ready(function () {
         processing: true,
         serverSide: true,
         ajax: {
-            url: baseUrl + 'team/fetchRecords',
+            url: baseUrl + 'student/fetchRecords',
             type: 'POST',
             headers: {
                 'X-CSRF-TOKEN': csrfToken
@@ -131,6 +131,7 @@ $(document).ready(function () {
         { data: 'name' },
         { data: 'bday' },
         { data: 'address' },
+    
         {
             data: null,
             orderable: false,
@@ -149,5 +150,11 @@ $(document).ready(function () {
         ],
         responsive: true,
         autoWidth: false
+
+        
     });
+  
 });
+   
+    
+    

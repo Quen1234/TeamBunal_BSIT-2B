@@ -4,12 +4,14 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class TeamModel extends Model
+class StudentModel extends Model
 {
-    protected $table = 'team';
+    protected $table = 'student';
     protected $primaryKey = 'id';
+    
 
-    protected $allowedFields = ['name','bday'];
+
+    protected $allowedFields = ['name','bday','address'];
 
     public function getRecords($start, $length, $searchValue = '')
     {
@@ -18,7 +20,7 @@ class TeamModel extends Model
 
         if (!empty($searchValue)) {
             $builder->groupStart()
-                ->like('email', $searchValue)
+        
                 ->orLike('name', $searchValue)
                 ->groupEnd();
         }

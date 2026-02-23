@@ -21,13 +21,13 @@ $routes->post('users/update', 'Users::update');
 $routes->delete('users/delete/(:num)', 'Users::delete/$1');
 $routes->post('users/fetchRecords', 'Users::fetchRecords');
 
-  //person routes
-$routes->get('/team', 'Team::index');
-$routes->post('team/save', 'Team::save');
-$routes->get('team/edit/(:segment)', 'Team::edit/$1');
-$routes->post('team/update', 'Team::update');
-$routes->delete('team/delete/(:num)', 'Team::delete/$1');
-$routes->post('team/fetchRecords', 'Team::fetchRecords');
+ // student routes
+ $routes->get('/student', 'Student::index');
+$routes->post('student/save', 'Student::save');
+$routes->get('student/edit/(:segment)', 'Student::edit/$1');
+$routes->post('student/update', 'Student::update');
+$routes->delete('student/delete/(:num)', 'Student::delete/$1');
+$routes->post('student/fetchRecords', 'Student::fetchRecords');
 
 
 // Logs routes for admin

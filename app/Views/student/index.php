@@ -24,10 +24,10 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">List of Team</h3>
+              <h3 class="card-title">List of Student</h3>
               <div class="float-right">
                 <button type="button" class="btn btn-md btn-primary" data-toggle="modal" data-target="#AddNewModal">
-                  <i class="fa fa-plus-circle fa fw"></i> Add New
+                  <i class="fa fa-plus-circle fa fw"></i> Add New User
                 </button>
               </div>
             </div>
@@ -41,6 +41,7 @@
                     <th>Birthday</th>
                     <th>Address</th>
                     <th>Actions</th>
+            
                   </tr>
                 </thead>
                 <tbody>
@@ -66,18 +67,18 @@
             <div class="modal-body">
               <div class="form-group">
                 <label>Name</label>
-                <input type="text" name="name" class="form-control" required />
+                <input type="text" name="name1" class="form-control" required />
               </div>
 
               <div class="form-group">
                 <label>Birthday</label>
                 <input type="date" name="bday" class="form-control" required />
               </div>
-
               <div class="form-group">
                 <label>Address</label>
                 <input type="text" name="address" class="form-control" required />
               </div>
+
           </div>
 
           <div class="modal-footer">
@@ -109,16 +110,19 @@
                 <input type="text" name="name" id="name" class="form-control" required />
               </div>
 
+   
             <div class="form-group">
-              <label for="email">Birthday</label>
-              <input type="date" class="form-control" id="bday" name="bday" required>
+              <label for="bday">Birthday</label>
+              <input type="bday" class="form-control" id="bday" name="bday" required>
             </div>
 
             <div class="form-group">
-              <label for="password">Address</label>
-              <input type="text" class="form-control" id="address" name="address">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" id="address" name="address" required>
             </div>  
-            
+
+             
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class='fas fa-times-circle'></i> Cancel</button>
@@ -133,7 +137,8 @@
 <div class="toasts-top-right fixed" style="position: fixed; top: 1rem; right: 1rem; z-index: 9999;"></div>
 <?= $this->endSection() ?>
 
+
 <?= $this->section('scripts') ?>
 <script> const baseUrl = "<?= base_url() ?>"; </script>
-<script src="<?= base_url('js/team/team.js') ?>"></script>
+<script src="<?= base_url('js/student/student.js') ?>"></script>
 <?= $this->endSection() ?>

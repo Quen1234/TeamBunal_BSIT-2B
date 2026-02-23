@@ -31,8 +31,8 @@
 .nav-sidebar .nav-link.active {
     background: linear-gradient(
         to right,
-        rgba(255, 165, 0, 0.05),   /* extremely light orange */
-        rgba(255, 165, 0, 0.01)    /* almost invisible */
+        rgba(255, 165, 0, 0.05),   
+        rgba(255, 165, 0, 0.01)    
     ) !important;
     box-shadow: none !important;
 }
@@ -64,9 +64,8 @@ body.dark-mode .main-sidebar .nav-icon {
 /* Active or hovered link */
 body.dark-mode .main-sidebar .nav-link.active,
 body.dark-mode .main-sidebar .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1) !important; /* slightly lighter bg on hover/active */
+    background-color: rgba(255, 255, 255, 0.1) !important; 
 }
-
 </style>
 
 <aside class="main-sidebar sidebar-light-light sidebar-light elevation-5" id="mainSidebar">
@@ -93,11 +92,20 @@ body.dark-mode .main-sidebar .nav-link:hover {
       </a>
     </li>
     <li class="nav-item">
-      <a href="<?= base_url('team') ?>" class="nav-link <?= is_active(1, 'team') ?>">
-        <i class="nav-icon fas fa-user-friends"></i>
-        <p>Team</p>
-      </a>
+        <a href="<?= base_url('person') ?>" class="nav-link <?= is_active(1, 'person') ?>">
+            <i class="nav-icon fas fa-users"></i>
+            <p>Manage Persons</p>
+        </a>
     </li>
+
+    <li class="nav-item">
+        <a href="<?= base_url('student') ?>" class="nav-link <?= is_active(1, 'student') ?>">
+            <i class="nav-icon fas fa-user-graduate"></i>
+            <p>Student</p>
+        </a>
+    </li>
+
+
      <li class="nav-item">
       <a href="<?= base_url('users') ?>" class="nav-link <?= is_active(1, 'users') ?>">
         <i class="nav-icon fas fa-user-lock"></i>
