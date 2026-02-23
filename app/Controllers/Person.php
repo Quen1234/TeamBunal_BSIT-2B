@@ -37,6 +37,35 @@ class Person extends Controller
         }
     }
 
+    public function update() {
+        $model = new PersonModel();
+        $logModel = new LogModel();
+
+        $userId   = $this->request->getPost('id');
+        $name     = $this->request->getPost('name');
+        $bday    = $this->request->getPost('bday');
+        $address = $this->request->getPost('address');
+       
+        $userData = [
+            'name'       => $name,
+            'bday'      => $bday,
+            'address'       => $address,
+      
+        ];
+
+        if (!empty($password)) {
+            $userData['password'] = password_hash('password', 'PASSWORD_BCRYPT');
+        }
+
+        if ($model->update($userId, $userData)) {
+            $logModel->addLog('User updated: ' . $name, 'UPDATED');
+            return $this->response->setJSON(['success' => true, 'message' => 'User updated successfully.']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Error updating user.']);
+        }
+    }
+
+
     public function fetchRecords() {
         $request = service('request');
         $model = new PersonModel();
